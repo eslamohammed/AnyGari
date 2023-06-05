@@ -1,0 +1,130 @@
+{
+  "driverList": [
+    {
+      "id": 1,
+      "driverImg": "https://previews.123rf.com/images/milkos/milkos1909/milkos190903093/129940216-passport-photo-portrait-of-middle-aged-man-looking-at-camera-over-white-studio-background-isolated.jpg",
+      "name": "Joe Matte",
+      "seats": 4,
+      "rating": 4.2,
+      "price": 4999.99,
+      "select": true
+    },
+    {
+      "id": 2,
+      "driverImg": "https://img.freepik.com/free-photo/calm-interesting-bearded-hipster-guy-red-hat-with-normal-face-expression_295783-1387.jpg?w=900&t=st=1664370059~exp=1664370659~hmac=74c49e1f5dfe549ba224b62d3b0dcb5b0fa3add3fdcfaeccbefb5e484e88fec2",
+      "name": "Mister Brown",
+      "seats": 10,
+      "rating": 4.9,
+      "price": 6999.99,
+      "select": false
+    },
+    {
+      "id": 3,
+      "driverImg": "https://previews.123rf.com/images/porechenskaya/porechenskaya1111/porechenskaya111100070/11322243-fashion-portrait-of-the-young-beautiful-man.jpg",
+      "name": "Leo Massate",
+      "seats": 10,
+      "rating": 5.0,
+      "price": 6999.45,
+      "select": false
+    },
+    {
+      "id": 4,
+      "driverImg": "https://img.freepik.com/free-photo/photo-young-attractive-man-blanc-t-shirt-cheerful-looks-camera-stands-pink-background-smiles_295783-3306.jpg?w=900&t=st=1664370128~exp=1664370728~hmac=fd6b8bc25d6ef440602df661bed6b2ac7ea469a31154b1a76b7618f7d9a7b97d",
+      "name": "Smith Bennett",
+      "seats": 6,
+      "rating": 4.3,
+      "price": 5999.20,
+      "select": false
+    },
+    {
+      "id": 5,
+      "driverImg": "https://img.freepik.com/free-photo/man-glasses-wearing-orange-shirt-summer-hat-holding-toy-airplane-happy-positive-smiling-standing-green-wall_141793-60638.jpg?w=900&t=st=1664370213~exp=1664370813~hmac=0129e48616e3412095520048b329b2f089239a6cdfd327de00a9c6abaf45b8ff",
+      "name": "Jones Carter",
+      "seats": 4,
+      "rating": 4.5,
+      "price": 3899.89,
+      "select": false
+    },
+    {
+      "id": 6,
+      "driverImg": "https://previews.123rf.com/images/milkos/milkos1909/milkos190903093/129940216-passport-photo-portrait-of-middle-aged-man-looking-at-camera-over-white-studio-background-isolated.jpg",
+      "name": "Joe Matte",
+      "seats": 4,
+      "rating": 4.6,
+      "price": 4999.99,
+      "select": true
+    },
+    {
+      "id": 7,
+      "driverImg": "https://img.freepik.com/free-photo/calm-interesting-bearded-hipster-guy-red-hat-with-normal-face-expression_295783-1387.jpg?w=900&t=st=1664370059~exp=1664370659~hmac=74c49e1f5dfe549ba224b62d3b0dcb5b0fa3add3fdcfaeccbefb5e484e88fec2",
+      "name": "Mister Brown",
+      "seats": 10,
+      "rating": 4.9,
+      "price": 6999.60,
+      "select": false
+    },
+    {
+      "id": 8,
+      "driverImg": "https://previews.123rf.com/images/porechenskaya/porechenskaya1111/porechenskaya111100070/11322243-fashion-portrait-of-the-young-beautiful-man.jpg",
+      "name": "Leo Massate",
+      "seats": 10,
+      "rating": 5.0,
+      "price": 6999.99,
+      "select": false
+    },
+    {
+      "id": 9,
+      "driverImg": "https://img.freepik.com/free-photo/photo-young-attractive-man-blanc-t-shirt-cheerful-looks-camera-stands-pink-background-smiles_295783-3306.jpg?w=900&t=st=1664370128~exp=1664370728~hmac=fd6b8bc25d6ef440602df661bed6b2ac7ea469a31154b1a76b7618f7d9a7b97d",
+      "name": "Smith Bennett",
+      "seats": 6,
+      "rating": 4.9,
+      "price": 5999.33,
+      "select": false
+    },
+    {
+      "id": 10,
+      "driverImg": "https://img.freepik.com/free-photo/man-glasses-wearing-orange-shirt-summer-hat-holding-toy-airplane-happy-positive-smiling-standing-green-wall_141793-60638.jpg?w=900&t=st=1664370213~exp=1664370813~hmac=0129e48616e3412095520048b329b2f089239a6cdfd327de00a9c6abaf45b8ff",
+      "name": "Jones Carter",
+      "seats": 6,
+      "rating": 3.9,
+      "price": 3899.08,
+      "select": false
+    },
+    {
+      "id": 11,
+      "driverImg": "https://previews.123rf.com/images/milkos/milkos1909/milkos190903093/129940216-passport-photo-portrait-of-middle-aged-man-looking-at-camera-over-white-studio-background-isolated.jpg",
+      "name": "Joe Matte",
+      "seats": 4,
+      "rating": 4.23,
+      "price": 4999.89,
+      "select": true
+    },
+    {
+      "id": 12,
+      "driverImg": "https://img.freepik.com/free-photo/calm-interesting-bearded-hipster-guy-red-hat-with-normal-face-expression_295783-1387.jpg?w=900&t=st=1664370059~exp=1664370659~hmac=74c49e1f5dfe549ba224b62d3b0dcb5b0fa3add3fdcfaeccbefb5e484e88fec2",
+      "name": "Mister Brown",
+      "seats": 10,
+      "rating": 4.5,
+      "price": 6999.90,
+      "select": false
+    },
+    {
+      "id": 13,
+      "driverImg": "https://previews.123rf.com/images/porechenskaya/porechenskaya1111/porechenskaya111100070/11322243-fashion-portrait-of-the-young-beautiful-man.jpg",
+      "name": "Leo Massate",
+      "seats": 10,
+      "rating": 5.0,
+      "price": 6999.99,
+      "select": false
+    },
+    {
+      "id": 14,
+      "driverImg": "https://img.freepik.com/free-photo/photo-young-attractive-man-blanc-t-shirt-cheerful-looks-camera-stands-pink-background-smiles_295783-3306.jpg?w=900&t=st=1664370128~exp=1664370728~hmac=fd6b8bc25d6ef440602df661bed6b2ac7ea469a31154b1a76b7618f7d9a7b97d",
+      "name": "Smith Bennett",
+      "seats": 6,
+      "rating": 4.9,
+      "price": 5999.78,
+      "select": false
+    }
+  ]
+}
