@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:transport/screens/landing_screen.dart';
 
 import 'constants/utils/colors_package.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized(); //we had to ignore an some Ops
+  SharedPreferences.getInstance();
+
   runApp(const MyApp());
 }
 
@@ -15,6 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false, // to remove Banner
       theme: ThemeData(
           textTheme: const TextTheme(
               headline1: TextStyle(

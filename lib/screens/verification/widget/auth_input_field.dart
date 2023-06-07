@@ -1,5 +1,7 @@
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:transport/controller/Api/login_controller.dart';
 
 import '../../../constants/utils/colors_package.dart';
 
@@ -11,6 +13,12 @@ class PhoneNumberVerification extends StatefulWidget {
 }
 
 class _PhoneNumberVerificationState extends State<PhoneNumberVerification> {
+
+    ///eslam work 
+  ///for Api inetgration
+  ///creating instance of model LoginController from eslam work 
+  ///loginEditingController is acessed by instance which is created for 
+  var loginController = Get.put(LoginController());
 
   final countryPicker = const FlCountryCodePicker();
   CountryCode? countryCode;
@@ -70,10 +78,19 @@ class _PhoneNumberVerificationState extends State<PhoneNumberVerification> {
                   errorLabel = 'Phone no';
                   setState(() {
                     visibility = true;
-                  });
+                    }
+                  );
                 }
               },
-              controller: phoneController,
+
+              /// eslam work
+              /// we had to remove line blow it for dummy usage
+              //controller: phoneController,
+              /// actually line will be added to make app live 
+              /// it just use instance of login model to get acual data from users
+              /// it all for seperating business logic from ui component
+              controller: loginController.loginEditingController,
+              ///now business logic is seperated from ui component
               cursorColor: primaryColor,
               keyboardType: TextInputType.phone,
               textInputAction: TextInputAction.done,

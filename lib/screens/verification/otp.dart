@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:transport/constants/utils/buttons.dart';
+import 'package:transport/controller/Api/otp_verification_controller.dart';
 import 'package:transport/screens/verification/sucess_screen.dart';
 
 class OtpScreen extends StatefulWidget {
@@ -12,6 +14,13 @@ class OtpScreen extends StatefulWidget {
 }
 
 class _OtpScreenState extends State<OtpScreen> {
+  
+    ///eslam work 
+    ///for Api inetgration
+    ///creating instance of model LoginController from eslam work 
+    ///loginEditingController is acessed by instance which is created for 
+    var otpVerificationController = Get.put(OtpVerificationController());
+
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +68,7 @@ class _OtpScreenState extends State<OtpScreen> {
                 ),
 
                 PinCodeTextField(
+                  controller: otpVerificationController.otpEditingController,
                   length: 6,
                   textStyle: const TextStyle(
                     fontWeight: FontWeight.w400
@@ -111,7 +121,9 @@ class _OtpScreenState extends State<OtpScreen> {
                   width: width * 0.65,
                   label: 'VERIFY',
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const SuccessScreen()));
+                    otpVerificationController.otpVerification(int.parse(widget.phoneNumber));
+                    //Navigator.push(context, MaterialPageRoute(builder: (context) => const SuccessScreen()));
+                  
                   },
                 ),
                 const Spacer(),

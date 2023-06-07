@@ -1,6 +1,8 @@
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:transport/constants/utils/buttons.dart';
+import 'package:transport/controller/Api/login_controller.dart';
 import 'package:transport/screens/verification/otp.dart';
 import 'package:transport/screens/verification/widget/auth_input_field.dart';
 
@@ -8,12 +10,21 @@ import '../../constants/utils/colors_package.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
-
+  //eslam work
+  
+  
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  
+  ///eslam work 
+  ///for Api inetgration
+  ///creating instance of model LoginController from eslam work 
+  ///loginEditingController is acessed by instance which is created for 
+  var loginController = Get.put(LoginController());
+
 
   final countryPicker = const FlCountryCodePicker();
   CountryCode? countryCode;
@@ -129,7 +140,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           label: 'CREATE ACCOUNT',
                           onPressed: () {
                             if(formKey.currentState!.validate()) {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => OtpScreen(phoneNumber: '${phoneController.text}')));
+                              loginController.login();
+                              //print(loginController.loginEditingController.text);
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => OtpScreen(phoneNumber: '${int.parse(loginController.loginEditingController.text)}')));
+                              
                             }
                           },
                         ),
