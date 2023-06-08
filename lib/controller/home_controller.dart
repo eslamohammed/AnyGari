@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:transport/constants/api_endpoints.dart';
+import 'package:transport/constants/utils/colors_package.dart';
 import '../models/district_model.dart';
 import '../models/division_model.dart';
 import '../models/vehilce_list_model.dart';
@@ -76,4 +77,56 @@ class HomeController extends GetxController {
       isDistrictLoading.value = false;
     }
   }
+
+  confirmDialog(title , function){
+
+    Get.defaultDialog(
+      title: '${title}',
+        titleStyle: TextStyle(
+          fontFamily: "Poppins",
+
+        ), 
+      middleText: 'Do you really want to Continue ?',
+        middleTextStyle: TextStyle(
+          fontFamily: "Poppins",
+            
+        ), 
+      textCancel: 'Cancel',
+      textConfirm: 'Confirm',
+      buttonColor: primaryColor,
+      confirmTextColor: Colors.white,
+      cancelTextColor: Colors.black87,
+      
+      onConfirm: function,
+    );
+
+
+    }
+
+  yesNoDialog(title , function){
+
+    Get.defaultDialog(
+      title: '${title}',
+        titleStyle: TextStyle(
+          fontFamily: "Poppins",
+
+        ), 
+      middleText: 'Do you really want to Continue ?',
+        middleTextStyle: TextStyle(
+          fontFamily: "Poppins",
+            
+        ), 
+      textCancel: 'NO',
+      textConfirm: 'Yes',
+      buttonColor: primaryColor,
+      confirmTextColor: Colors.white,
+      cancelTextColor: Colors.black87,
+      
+      onConfirm: function,
+    );
+
+    }
+
+
+
 }

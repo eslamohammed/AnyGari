@@ -1,7 +1,9 @@
 
 import 'package:http/http.dart' as http;
 //import 'package:snippet_coder_utils/FormHelper.dart';
-import 'package:flutter/material.dart';
+//import 'package:flutter/material.dart';
+//import 'package:transport/controller/home_controller.dart';
+//import 'package:transport/screens/verification/otp.dart';
 //import 'package:transport/screens/verification/otp.dart';
 
 //import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -9,9 +11,10 @@ import 'package:flutter/material.dart';
 class NetworkHandler{
   static final client = http.Client();
   //static final storage = FlutterSecureStorage();
-  
-  static void post(var body, String endpoint , header) async {
-    BuildContext? context;
+
+  static void post(var body, String endpoint , header , function) async {
+    //HomeController homeController =HomeController();
+    //BuildContext? context ;
     var response = await client.post(
       buildUrl(endpoint),
       body: body,
@@ -19,16 +22,9 @@ class NetworkHandler{
       );
     print("${response.body}");
       if (response.statusCode == 200){
-        print("sucess");
-  /*      FormHelper.showSimpleAlertDialog(
-          context!,
-          "AnyGari",
-          "${response.body}",
-          "Ok",
-          () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => OtpScreen(phoneNumber: '{phoneController.text}')));
-          },
-        );*/
+        print("sucess now function will be excuted");
+        function;
+     
       }
       else{
         print("not success");
