@@ -1,8 +1,11 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:transport/constants/utils/buttons.dart';
 import 'package:transport/controller/Api/otp_verification_controller.dart';
+import 'package:transport/controller/home_controller.dart';
 import 'package:transport/screens/verification/sucess_screen.dart';
 
 class OtpScreen extends StatefulWidget {
@@ -20,8 +23,9 @@ class _OtpScreenState extends State<OtpScreen> {
     ///creating instance of model LoginController from eslam work 
     ///loginEditingController is acessed by instance which is created for 
     var otpVerificationController = Get.put(OtpVerificationController());
-
-
+    
+    HomeController _homeController =HomeController();
+    /////////////////////////////////////////////////////////////////////
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -68,7 +72,9 @@ class _OtpScreenState extends State<OtpScreen> {
                 ),
 
                 PinCodeTextField(
+                  ///eslam work
                   controller: otpVerificationController.otpEditingController,
+                  ///////////////////////////////////////////////////////////
                   length: 6,
                   textStyle: const TextStyle(
                     fontWeight: FontWeight.w400
@@ -121,9 +127,36 @@ class _OtpScreenState extends State<OtpScreen> {
                   width: width * 0.65,
                   label: 'VERIFY',
                   onPressed: () {
-                    otpVerificationController.otpVerification(int.parse(widget.phoneNumber), context);
+
+                    /// Eslam work
+                    /// 
+                    /// 
+                    /// seperating Application logic from UI Component
+                    /// calling otpVerification method from OtpVerificationController for API OTP Validation integrating  
+                    /// 
+                    // ignore: unnecessary_null_comparison
+                    if(otpVerificationController.otpEditingController.text != null)
+                    {
+                      // ignore: unnecessary_null_comparison
+                      otpVerificationController.otpEditingController.text == null ? print("true") : print("false");
+                      otpVerificationController.otpVerification(
+                        context,
+                        int.parse(widget.phoneNumber),
+                        (){
+                            debugPrint("=============================================================");
+                            debugPrint("=============================================================");
+                            Navigator.push(context, MaterialPageRoute(builder: (context) =>  SuccessScreen(phoneNumber: widget.phoneNumber)));
+                        },
+                        (){
+                          //Navigator.pop(context);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) =>  SuccessScreen(phoneNumber: widget.phoneNumber)));
+                        }
+                      );
+                    }
+                    else{
+                      _homeController.alertDialog("Alert : Verification Number shouldn't be empty");
+                    }
                     //Navigator.push(context, MaterialPageRoute(builder: (context) => const SuccessScreen()));
-                  
                   },
                 ),
                 const Spacer(),

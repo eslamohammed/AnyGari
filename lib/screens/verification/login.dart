@@ -141,10 +141,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           width: width * 0.65,
                           label: 'CREATE ACCOUNT',
                           onPressed: () {
-                            if(formKey.currentState!.validate()) {
-                            
-                              /// eslam work
-                              
+                                                        
+                          /// eslam work
+                          ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                            // ignore: unnecessary_null_comparison
+                            if(loginController.loginEditingController.text != null)
+                            {
+                              if(formKey.currentState!.validate()) {
+                             
                               _homeController.confirmDialog( 
                                 "Confirm Number",
                                 () {
@@ -164,6 +168,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                       }
                                     )
                                   */
+                                  },
+                                  () {
+                                    Navigator.pop(context);
+                                    Navigator.pop(context);
                                   }
                                 );   
                               }
@@ -182,12 +190,17 @@ class _LoginScreenState extends State<LoginScreen> {
 
                               
                               );*/
-                              
-                              
+                                                         
                               //print(loginController.loginEditingController.text);
                               //Navigator.push(context, MaterialPageRoute(builder: (context) => OtpScreen(phoneNumber: '${int.parse(loginController.loginEditingController.text)}')));
                               
                             }
+                            }
+                            else{
+                              _homeController.alertDialog("Alert : Phone Number shouldn't be empty");
+
+                            }
+                          ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                           },
                         ),
                         SizedBox(height: height * 0.045,),

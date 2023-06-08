@@ -1,4 +1,6 @@
 
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:transport/controller/home_controller.dart';
@@ -10,18 +12,22 @@ class OtpVerificationController extends GetxController{
     TextEditingController otpEditingController = TextEditingController();
     HomeController homeController =HomeController();
 
-    void otpVerification(int mobile , BuildContext context){
+    void otpVerification(BuildContext context , int mobile ,  function , function1){
     
-    OtpVerificationModel otpVerificationModel = OtpVerificationModel(mobile: mobile , otp: int.parse(otpEditingController.text)); //we had to parse int first
+    OtpVerificationModel otpVerificationModel = OtpVerificationModel(
+      mobile: mobile != null ? mobile : 0000000000 ,
+      otp: otpEditingController.text != null ? int.parse(otpEditingController.text) : 000000); //we had to parse int first
     // because post is a static then we can call it
     NetworkHandler.post(
-        otpVerificationModelToJson(otpVerificationModel),
-        "/user/otp/validate",
+        context,
+        otpVerificationModelToJson(otpVerificationModel), //Body
+        "/user/otp/validate",                             //Endpoint
         {
           "Content-type":"application/json",
         },
-        homeController.confirmDialog("now",(){}),
-        context
+        //homeController.confirmDialog("now",(){}),
+        function,
+        function1,
       );
 
   }

@@ -127,6 +127,26 @@ class HomeController extends GetxController {
 
     }
 
+  alertDialog(title){
+
+    Get.defaultDialog(
+      title: '${title}',
+        titleStyle: TextStyle(
+          fontFamily: "Poppins",
+
+        ), 
+      middleText: 'Do you really want to Continue ?',
+        middleTextStyle: TextStyle(
+          fontFamily: "Poppins",
+            
+        ), 
+      textCancel: 'ok',
+      buttonColor: primaryColor,
+      confirmTextColor: Colors.white,
+      cancelTextColor: Colors.black87,      
+    );
+
+    }
 
 
 }

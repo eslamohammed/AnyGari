@@ -4,16 +4,13 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:transport/controller/home_controller.dart';
-import 'package:transport/screens/verification/otp.dart';
-//import 'package:transport/screens/verification/otp.dart';
-
 //import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class NetworkHandler{
   static final client = http.Client();
   //static final storage = FlutterSecureStorage();
 
-  static void post(var body, String endpoint , header , function , BuildContext context) async {
+  static Future<String> post(BuildContext context ,var body, String endpoint , header , function , function2 , ) async {
 
     HomeController _homeController =HomeController();
 
@@ -22,6 +19,8 @@ class NetworkHandler{
       body: body,
       headers: header
       );
+
+
     print("${response.body}");
       if (response.statusCode == 200){
         var body = jsonDecode(response.body);
@@ -29,24 +28,47 @@ class NetworkHandler{
           "${body["status"]}",
           
           function,
-          
-          /*() {
-          Navigator.push(context,
-          MaterialPageRoute(builder: (context) => OtpScreen(phoneNumber: '{int.parse(loginController.loginEditingController.text)}')));
-          }*/
         );
       }
       else{
         var body = jsonDecode(response.body);
         _homeController.yesNoDialog( 
-          "${body["status"]}",
-          () {
-             Navigator.pop(context);
-             Navigator.pop(context);
-          }
+          "${body["msg"]}",
+          function2
         );
       }
+    return response.body;
+    }
+  
+  
+  static Future<String> registerPost(BuildContext context ,var body, String endpoint , header , function , function2 , ) async {
 
+    HomeController _homeController =HomeController();
+
+    var response = await client.post(
+      buildUrl(endpoint),
+      body: body,
+      headers: header
+      );
+
+
+    print("${response.body}");
+      if (response.statusCode == 200){
+        var body = jsonDecode(response.body);
+        _homeController.yesNoDialog( 
+          "${body["msg"]}",
+          
+          function,
+        );
+      }
+      else{
+        var body = jsonDecode(response.body);
+        _homeController.yesNoDialog( 
+          "${body["msg"]}",
+          function2
+        );
+      }
+    return response.body;
     }
   
   // host  http://43.204.189.94/api/v1

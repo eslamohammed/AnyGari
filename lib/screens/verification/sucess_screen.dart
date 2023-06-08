@@ -5,7 +5,8 @@ import '../../constants/utils/colors_package.dart';
 import '../profile_setup/profile_setup_screen.dart';
 
 class SuccessScreen extends StatefulWidget {
-  const SuccessScreen({Key? key}) : super(key: key);
+  String phoneNumber;
+   SuccessScreen({Key? key , required this.phoneNumber}) : super(key: key);
 
   @override
   State<SuccessScreen> createState() => _SuccessScreenState();
@@ -19,7 +20,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
     Timer(Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (_) =>  ProfileSetupScreen(),
+          builder: (_) =>  ProfileSetupScreen(phoneNumber: widget.phoneNumber),
         ),
       );
     });

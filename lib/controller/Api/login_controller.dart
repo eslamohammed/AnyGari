@@ -1,3 +1,7 @@
+// ignore_for_file: unused_local_variable
+
+//import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 //import 'package:transport/controller/home_controller.dart';
@@ -10,31 +14,26 @@ class LoginController extends GetxController{
   
   TextEditingController loginEditingController = TextEditingController();
   //HomeController homeController =HomeController();
-  void login(BuildContext context ,function){
+
+
+  void login(BuildContext context ,function , function1) async {
     
-    OtpLoginModel otpLoginModel = OtpLoginModel(mobile: int.parse(loginEditingController.text)); //we had to parse int first
-    print("inerted number ${loginEditingController.text}");
+    OtpLoginModel otpLoginModel = OtpLoginModel(mobile: (loginEditingController.text)!=Null? int.parse(loginEditingController.text) : 0000000000); //we had to parse int first
+    print("inserted number ${loginEditingController.text}");
     // because post is a static then we can call it
-    NetworkHandler.post(
+   
+    var response = NetworkHandler.post(
+      context,
       otpLoginModelToJson(otpLoginModel),
       "/user/otp/create",    //end point
       {
          "Content-type":"application/json"
       },
-      function
-      ,
-      context
-      /*{
-            debugPrint("============================================================="),
-            homeController.confirmDialog( () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => OtpScreen(phoneNumber: '${int.parse(loginEditingController.text)}')));
-          }
-        )
-      }*/
-      
-
+      function,
+      function1,
       );
 
+    //var data = json.decode(response.toString());
 
 
   }
