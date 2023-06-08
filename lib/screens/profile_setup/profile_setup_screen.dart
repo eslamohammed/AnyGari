@@ -10,6 +10,7 @@ import 'package:transport/screens/profile_setup/widget/profile_setup_input_field
 
 import '../../constants/utils/colors_package.dart';
 
+// ignore: must_be_immutable
 class ProfileSetupScreen extends StatefulWidget {
   String phoneNumber;
    ProfileSetupScreen({Key? key, required this.phoneNumber}) : super(key: key);
@@ -183,6 +184,8 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
       bottomNavigationBar: PrimaryBottomButton(
           label: 'SUBMIT',
           onPressed: (){
+            /// eslam work
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             if(formKey.currentState!.validate())
             {
               registerController.register(
@@ -195,7 +198,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
                 }
               );
             }
-            
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             //Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
           }
       )
