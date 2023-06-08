@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:transport/controller/home_controller.dart';
@@ -9,7 +10,7 @@ class OtpVerificationController extends GetxController{
     TextEditingController otpEditingController = TextEditingController();
     HomeController homeController =HomeController();
 
-    void otpVerification(int mobile){
+    void otpVerification(int mobile , BuildContext context){
     
     OtpVerificationModel otpVerificationModel = OtpVerificationModel(mobile: mobile , otp: int.parse(otpEditingController.text)); //we had to parse int first
     // because post is a static then we can call it
@@ -19,10 +20,9 @@ class OtpVerificationController extends GetxController{
         {
           "Content-type":"application/json",
         },
-        homeController.confirmDialog("now",(){})
+        homeController.confirmDialog("now",(){}),
+        context
       );
-
-
 
   }
 }

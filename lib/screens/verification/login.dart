@@ -151,15 +151,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                 loginController.login(
                                   context,
                                   //loginController.loginEditingController.text
-                                  {
-                                    debugPrint("============================================================="),
-                                    _homeController.yesNoDialog( 
+                                  (){
+                                    debugPrint("=============================================================");
+                                    Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) => OtpScreen(phoneNumber: '${int.parse(loginController.loginEditingController.text)}')));
+                                      
+                                  /*  _homeController.yesNoDialog( 
                                       "Otp created Successfully",
                                       () {
                                       Navigator.push(context,
                                       MaterialPageRoute(builder: (context) => OtpScreen(phoneNumber: '${int.parse(loginController.loginEditingController.text)}')));
                                       }
                                     )
+                                  */
                                   }
                                 );   
                               }

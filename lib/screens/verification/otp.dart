@@ -121,7 +121,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   width: width * 0.65,
                   label: 'VERIFY',
                   onPressed: () {
-                    otpVerificationController.otpVerification(int.parse(widget.phoneNumber));
+                    otpVerificationController.otpVerification(int.parse(widget.phoneNumber), context);
                     //Navigator.push(context, MaterialPageRoute(builder: (context) => const SuccessScreen()));
                   
                   },

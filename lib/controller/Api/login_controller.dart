@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
-import 'package:transport/controller/home_controller.dart';
+//import 'package:transport/controller/home_controller.dart';
 import 'package:transport/models/OTP_Login/otp_login_model.dart';
-import 'package:transport/screens/verification/otp.dart';
+//import 'package:transport/screens/verification/otp.dart';
 import 'package:transport/service/network_handler/network_handler.dart';
 
 class LoginController extends GetxController{
@@ -22,6 +22,8 @@ class LoginController extends GetxController{
          "Content-type":"application/json"
       },
       function
+      ,
+      context
       /*{
             debugPrint("============================================================="),
             homeController.confirmDialog( () {
