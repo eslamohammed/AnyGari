@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:transport/constants/utils/buttons.dart';
 import 'package:transport/controller/Api/login_controller.dart';
+import 'package:transport/controller/home_controller.dart';
 import 'package:transport/screens/verification/otp.dart';
 import 'package:transport/screens/verification/widget/auth_input_field.dart';
 
@@ -25,6 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   ///loginEditingController is acessed by instance which is created for 
   var loginController = Get.put(LoginController());
 
+  HomeController _homeController =HomeController();
 
   final countryPicker = const FlCountryCodePicker();
   CountryCode? countryCode;
@@ -140,9 +142,46 @@ class _LoginScreenState extends State<LoginScreen> {
                           label: 'CREATE ACCOUNT',
                           onPressed: () {
                             if(formKey.currentState!.validate()) {
-                              loginController.login();
+                            
+                              /// eslam work
+                              
+                              _homeController.confirmDialog( 
+                                "Confirm Number",
+                                () {
+                                loginController.login(
+                                  context,
+                                  //loginController.loginEditingController.text
+                                  {
+                                    debugPrint("============================================================="),
+                                    _homeController.yesNoDialog( 
+                                      "Otp created Successfully",
+                                      () {
+                                      Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) => OtpScreen(phoneNumber: '${int.parse(loginController.loginEditingController.text)}')));
+                                      }
+                                    )
+                                  }
+                                );   
+                              }
+                            );
+
+                              /*loginController.login(
+                                context,
+                                //loginController.loginEditingController.text
+                                {
+                                  debugPrint("============================================================="),
+                                  _homeController.confirmDialog( () {
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => OtpScreen(phoneNumber: '${int.parse(loginController.loginEditingController.text)}')));
+                                    }
+                                  )
+                                }
+
+                              
+                              );*/
+                              
+                              
                               //print(loginController.loginEditingController.text);
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => OtpScreen(phoneNumber: '${int.parse(loginController.loginEditingController.text)}')));
+                              //Navigator.push(context, MaterialPageRoute(builder: (context) => OtpScreen(phoneNumber: '${int.parse(loginController.loginEditingController.text)}')));
                               
                             }
                           },
@@ -181,4 +220,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
     );
   }
+}
+
+  void dosomething() {
+  print("object");
+  
 }
