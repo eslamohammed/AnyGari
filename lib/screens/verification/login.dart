@@ -215,7 +215,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                             InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  //where is log in screen ??////////////////////////////////////////////
+                                },
                                 child: const Text('Sign in',
                                   style: TextStyle(
                                       fontSize: 12,
